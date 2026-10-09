@@ -11,7 +11,7 @@
 
 //bibi链接：https://www.bilibili.com/video/BV1QTHd6hEuJ/?spm_id_from=333.1007.top_right_bar_window_dynamic.content.click
 //立创开源：  https://oshwhub.com/sunmingyi1/project_tvfkmdfu
-//github开源：https://github.com/sunmingyi1/STM32H7LVGL
+//github开源：https://github.com/sunsun033/STM32H7LVGL
 
 ## ✨ 简介
 
