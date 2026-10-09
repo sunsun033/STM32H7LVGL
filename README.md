@@ -4,6 +4,13 @@
 
 <div align="center">
 
+哔哩哔哩视频链接
+https://www.bilibili.com/video/BV1QTHd6hEuJ/?spm_id_from=333.1007.top_right_bar_window_dynamic.content.click
+github软件开源链接
+https://github.com/sunsun033/STM32H7LVGL
+立创开源链接
+https://oshwhub.com/sunmingyi1/project_tvfkmdfu
+
 ![PCB 渲染图](images/board_render_top.png)
 
 </div>
