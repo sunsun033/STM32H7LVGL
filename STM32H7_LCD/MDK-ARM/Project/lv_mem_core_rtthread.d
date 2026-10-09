@@ -1,0 +1,13 @@
+project\lv_mem_core_rtthread.o: ../Component/LVGL/lvgl/src/stdlib/rtthread/lv_mem_core_rtthread.c
+project\lv_mem_core_rtthread.o: ../Component/LVGL/lvgl/src/stdlib/rtthread/../lv_mem.h
+project\lv_mem_core_rtthread.o: ../Component/LVGL/lvgl/src/stdlib/rtthread/../../lv_conf_internal.h
+project\lv_mem_core_rtthread.o: ../Component/LVGL/lvgl/src/stdlib/rtthread/../../lv_conf_kconfig.h
+project\lv_mem_core_rtthread.o: ../Component/LVGL/lvgl/src/stdlib/rtthread/../../../../lv_conf.h
+project\lv_mem_core_rtthread.o: ../Component/LVGL/lvgl/src/stdlib/rtthread/../lv_string.h
+project\lv_mem_core_rtthread.o: ../Component/LVGL/lvgl/src/stdlib/rtthread/../../misc/lv_types.h
+project\lv_mem_core_rtthread.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+project\lv_mem_core_rtthread.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
+project\lv_mem_core_rtthread.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
+project\lv_mem_core_rtthread.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\inttypes.h
+project\lv_mem_core_rtthread.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\limits.h
+project\lv_mem_core_rtthread.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdarg.h

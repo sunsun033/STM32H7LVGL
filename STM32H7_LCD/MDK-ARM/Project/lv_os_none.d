@@ -1,0 +1,16 @@
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/lv_os_none.c
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/../lv_conf_internal.h
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/../lv_conf_kconfig.h
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/../../../lv_conf.h
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/lv_os.h
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/../misc/lv_types.h
+project\lv_os_none.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+project\lv_os_none.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
+project\lv_os_none.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
+project\lv_os_none.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\inttypes.h
+project\lv_os_none.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\limits.h
+project\lv_os_none.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdarg.h
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/lv_os_none.h
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/../misc/lv_timer.h
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/../misc/../tick/lv_tick.h
+project\lv_os_none.o: ../Component/LVGL/lvgl/src/osal/../misc/lv_ll.h

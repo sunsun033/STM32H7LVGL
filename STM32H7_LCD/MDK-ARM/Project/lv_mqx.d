@@ -1,0 +1,13 @@
+project\lv_mqx.o: ../Component/LVGL/lvgl/src/osal/lv_mqx.c
+project\lv_mqx.o: ../Component/LVGL/lvgl/src/osal/lv_os.h
+project\lv_mqx.o: ../Component/LVGL/lvgl/src/osal/../lv_conf_internal.h
+project\lv_mqx.o: ../Component/LVGL/lvgl/src/osal/../lv_conf_kconfig.h
+project\lv_mqx.o: ../Component/LVGL/lvgl/src/osal/../../../lv_conf.h
+project\lv_mqx.o: ../Component/LVGL/lvgl/src/osal/../misc/lv_types.h
+project\lv_mqx.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+project\lv_mqx.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
+project\lv_mqx.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
+project\lv_mqx.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\inttypes.h
+project\lv_mqx.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\limits.h
+project\lv_mqx.o: C:\Keil5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdarg.h
+project\lv_mqx.o: ../Component/LVGL/lvgl/src/osal/lv_os_none.h
