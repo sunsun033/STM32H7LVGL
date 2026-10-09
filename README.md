@@ -31,7 +31,7 @@ https://oshwhub.com/sunmingyi1/project_tvfkmdfu
 | RGB-LCD + 电容触摸 | ✅ 已验证 | **LVGL 稳定 59~60FPS，CPU 占用 ~1%** |
 | SPI Flash（Winbond，WSON8） | ✅ 已验证 | 读写正常 |
 | TF 卡 | ✅ 已验证 | 读写正常 |
-| Type-C 供电 / 调试串口 | ✅ 已验证 | — |
+| Type-C 供电（ESD静电防护） / 调试串口 | ✅ 已验证 | — |
 | 用户按键 ×3（USER / RST / BOOT0） | ✅ 已验证 | — |
 
 > 📹 实机演示视频见仓库 Release / 讨论区（LVGL 演示 + 亮度调节）。
@@ -70,7 +70,7 @@ LVGL 演示稳定运行在 **59~60 FPS**（左上角为 LVGL 性能监视器：`
 | 显示接口 | **RGB565**，40pin FPC，直驱 RGB 接口 LCD |
 | 触摸 | 电容触摸（TP 座，I2C） |
 | 存储扩展 | TF 卡座 |
-| USB | Type-C ×2：DEBUG（供电 + 调试串口）/ UART |
+| USB | Type-C ×2：DEBUG（供电 + DFU）/ UART |
 | 按键 | USER / RST / BOOT0 |
 | 指示灯 | POWER LED / SLED（串口状态） |
 | 扩展 | 2.54mm 双排排针，引出 GPIO + 3.3V / 5V / GND |
