@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H743 Dev Board — 产品封面</title>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --panel: #101627;
+    --line: rgba(255,255,255,.08);
+    --txt: #e8ecf4;
+    --muted: #8a93a8;
+    --accent: #35d0ff;
+    --accent2: #7c6cff;
+    --gold: #ffb454;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--txt);
+    font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 8vw;
+    background:
+      radial-gradient(900px 500px at 85% 15%, rgba(124,108,255,.18), transparent 60%),
+      radial-gradient(700px 500px at 10% 85%, rgba(53,208,255,.14), transparent 60%),
+      var(--bg);
+  }
+  /* 网格背景 */
+  .hero::before {
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 40%, transparent 100%);
+  }
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .eyebrow {
+    display: inline-flex; align-items:center; gap:10px;
+    font-size: 13px; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(53,208,255,.35);
+    border-radius: 999px;
+    padding: 8px 18px;
+    background: rgba(53,208,255,.06);
+    margin-bottom: 28px;
+  }
+  .eyebrow .dot {
+    width:7px; height:7px; border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse { 50% { opacity:.35; } }
+  h1 {
+    font-size: clamp(44px, 6vw, 76px);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+  h1 .grad {
+    background: linear-gradient(100deg, var(--accent) 10%, var(--accent2) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub {
+    margin-top: 22px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 520px;
+  }
+  .cta-row { margin-top: 38px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn {
+    padding: 13px 30px; border-radius: 10px; font-size:15px; font-weight:600;
+    text-decoration:none; letter-spacing:.04em; transition:.2s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary {
+    color:#04121a;
+    background: linear-gradient(100deg, var(--accent), #6fe3ff);
+    box-shadow: 0 6px 28px rgba(53,208,255,.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-ghost { color: var(--txt); border:1px solid var(--line); background:rgba(255,255,255,.03); }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.25); }
+
+  /* PCB 图 */
+  .board-wrap {
+    position: relative;
+    display:flex; justify-content:center;
+  }
+  .board-wrap::before {
+    content:"";
+    position:absolute; inset: 6% 4%;
+    background: radial-gradient(closest-side, rgba(53,208,255,.22), transparent 75%);
+    filter: blur(24px);
+    z-index:0;
+  }
+  .board {
+    position:relative; z-index:1;
+    width: 100%;
+    max-width: 560px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow:
+      0 30px 80px rgba(0,0,0,.6),
+      0 0 0 1px rgba(53,208,255,.08) inset;
+    transform: perspective(1200px) rotateY(-6deg) rotateX(2deg);
+    transition: transform .4s;
+  }
+  .board:hover { transform: perspective(1200px) rotateY(0) rotateX(0) scale(1.02); }
+  .board img { width:100%; display:block; border-radius:18px; }
+
+  .chip-tag {
+    position:absolute; z-index:2;
+    font-family: Consolas, monospace; font-size:12px;
+    color: var(--accent); background: rgba(10,14,26,.85);
+    border:1px solid rgba(53,208,255,.4);
+    padding:5px 12px; border-radius:8px;
+    backdrop-filter: blur(4px);
+  }
+  .tag-mcu { top: 42%; left:-4%; animation: float 5s ease-in-out infinite; }
+  .tag-sdram { top: 24%; right:-2%; animation: float 6s ease-in-out infinite reverse; }
+  .tag-rgb { bottom: 12%; left: 2%; animation: float 5.5s ease-in-out 1s infinite; }
+  @keyframes float { 50% { transform: translateY(-8px); } }
+
+  /* 参数条 */
+  .specbar {
+    position: relative; z-index:1;
+    max-width: 1280px; margin: 56px auto 0;
+    display:grid; grid-template-columns: repeat(4, 1fr);
+    border:1px solid var(--line); border-radius: 16px;
+    background: rgba(16,22,39,.7); backdrop-filter: blur(8px);
+    overflow:hidden;
+  }
+  .spec {
+    padding: 22px 26px;
+    border-right:1px solid var(--line);
+  }
+  .spec:last-child { border-right:none; }
+  .spec b { display:block; font-size:22px; font-weight:700; color:var(--txt); }
+  .spec b em { font-style:normal; color:var(--accent); font-size:14px; margin-left:2px; }
+  .spec span { font-size:13px; color:var(--muted); letter-spacing:.06em; }
+
+  /* ===== Features ===== */
+  .section { max-width:1280px; margin:0 auto; padding: 90px 8vw 40px; }
+  .sec-head { text-align:center; margin-bottom: 52px; }
+  .sec-head h2 { font-size:34px; font-weight:750; }
+  .sec-head p { color:var(--muted); margin-top:10px; font-size:15px; }
+  .grid-feat {
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;
+  }
+  .card {
+    background: var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:28px 26px;
+    transition:.25s;
+    position:relative; overflow:hidden;
+  }
+  .card::after {
+    content:""; position:absolute; top:0; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity:0; transition:.25s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(53,208,255,.3); }
+  .card:hover::after { opacity:1; }
+  .card .ico {
+    width:46px; height:46px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; margin-bottom:18px;
+    background: linear-gradient(135deg, rgba(53,208,255,.15), rgba(124,108,255,.15));
+    border:1px solid rgba(53,208,255,.25);
+  }
+  .card h3 { font-size:17px; margin-bottom:10px; }
+  .card p { font-size:14px; line-height:1.75; color:var(--muted); }
+
+  footer {
+    margin-top: 80px; padding: 36px 8vw 44px;
+    border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+    color:var(--muted); font-size:13px;
+  }
+  footer .mono { font-family:Consolas, monospace; color:var(--accent); }
+
+  @media (max-width: 960px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .board { transform:none; }
+    .specbar { grid-template-columns: repeat(2,1fr); }
+    .grid-feat { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>OPEN SOURCE HARDWARE</div>
+      <h1>H743<br><span class="grad">高性能开发板</span></h1>
+      <p class="sub">
+        基于 <b>STM32H743</b> @ 480MHz Cortex-M7 的极客开发板。
+        板载 SDRAM · SPI Flash · TF 卡 · RGB-LCD 全套外设，
+        一块板子搞定图形界面与大数据量应用。
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#">开源仓库 →</a>
+        <a class="btn btn-ghost" href="#">原理图 / 文档</a>
+      </div>
+    </div>
+    <div class="board-wrap">
+      <div class="chip-tag tag-mcu">STM32H743 LQFP144</div>
+      <div class="chip-tag tag-sdram">SDRAM · TSOP54</div>
+      <div class="chip-tag tag-rgb">RGB-LCD + Touch</div>
+      <div class="board"><img src="pcb_top.png" alt="PCB 3D 渲染图"></div>
+    </div>
+  </div>
+
+  <div class="specbar">
+    <div class="spec"><b>480<em>MHz</em></b><span>CORTEX-M7 主频</span></div>
+    <div class="spec"><b>32<em>MB</em></b><span>板载 SDRAM</span></div>
+    <div class="spec"><b>RGB565</b><span>LCD + 触摸接口</span></div>
+    <div class="spec"><b>Type-C</b><span>供电 / 调试</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head">
+    <h2>一块板，全都要</h2>
+    <p>显示、存储、扩展，开箱即用</p>
+  </div>
+  <div class="grid-feat">
+    <div class="card">
+      <div class="ico">🧠</div>
+      <h3>STM32H743 主控</h3>
+      <p>Cortex-M7 双精度浮点，480MHz 主频，2MB Flash / 1MB RAM，性能拉满的 MCU 平台。</p>
+    </div>
+    <div class="card">
+      <div class="ico">🖥️</div>
+      <h3>RGB-LCD + 触摸</h3>
+      <p>标准 RGB FPC 接口与触摸接口（TP），直驱大屏，跑 LVGL / TouchGFX 毫无压力。</p>
+    </div>
+    <div class="card">
+      <div class="ico">💾</div>
+      <h3>三重存储</h3>
+      <p>板载 SDRAM（帧缓冲专用）+ WSON8 SPI Flash + TF 卡座，Bootloader、资源文件、日志各得其所。</p>
+    </div>
+    <div class="card">
+      <div class="ico">🔌</div>
+      <h3>Type-C 调试</h3>
+      <p>Debug Type-C 一线连接，板载电源指示 LED 与串口状态 LED，调试体验清爽利落。</p>
+    </div>
+    <div class="card">
+      <div class="ico">🔘</div>
+      <h3>用户按键</h3>
+      <p>RST / BOOT0 / 用户按键三键齐备，ISP 下载与功能触发无需镊子短接。</p>
+    </div>
+    <div class="card">
+      <div class="ico">📌</div>
+      <h3>双排扩展 IO</h3>
+      <p>3.3V / 5V 电源轨 + 全部关键 GPIO 引出，接传感器、模块、逻辑分析仪都很顺手。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 <span id="board-name">H743 Dev Board</span> · Open Source Hardware</div>
+  <div class="mono">STM32H743 · SDRAM · RGB-LCD · TF · QSPI-Flash</div>
+</footer>
+
+</body>
+</html>

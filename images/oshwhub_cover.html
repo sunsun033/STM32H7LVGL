@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>OSHWHub 封面 23:16</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { background:#1b1e26; display:flex; justify-content:center; padding:24px; }
+  /* 23:16 画布，宽度按平台常见 1150px 输出 → 尺寸 1150x800 */
+  #cover {
+    width: 1150px; height: 800px;
+    position: relative;
+    overflow: hidden;
+    background: #070b14;
+    font-family: "Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;
+    color:#fff;
+  }
+  /* 左侧渐变 + 网格 */
+  #cover::before {
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(760px 620px at 12% 20%, rgba(38,96,255,.34), transparent 62%),
+      radial-gradient(680px 560px at 88% 88%, rgba(0,214,255,.20), transparent 62%),
+      linear-gradient(115deg,#050810 0%, #0a1226 45%, #071120 100%);
+  }
+  #cover::after {
+    content:""; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(120,180,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,180,255,.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 80% 75% at 30% 45%, #000 30%, transparent 100%);
+  }
+
+  /* 右侧实物图区域 */
+  .photo {
+    position:absolute; right:-40px; top:50%; transform: translateY(-50%);
+    width: 640px; height: 640px;
+    border-radius: 50%;
+    overflow:hidden;
+    border: 2px solid rgba(80,200,255,.28);
+    box-shadow: 0 0 90px rgba(30,140,255,.42), inset 0 0 70px rgba(0,0,0,.75);
+    z-index:2;
+  }
+  .photo img { width:100%; height:100%; object-fit: cover; object-position: 50% 42%; }
+  .photo::after {
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(circle at 35% 30%, transparent 40%, rgba(5,9,20,.62) 92%);
+  }
+
+  .content { position:absolute; left:74px; top:0; bottom:0; z-index:3;
+             display:flex; flex-direction:column; justify-content:center; width:600px; }
+
+  .tag {
+    display:inline-flex; align-items:center; gap:10px; align-self:flex-start;
+    font-size:16px; letter-spacing:.24em; color:#5fd8ff;
+    border:1px solid rgba(95,216,255,.42); background:rgba(95,216,255,.08);
+    padding:9px 20px; border-radius:999px; margin-bottom:26px;
+  }
+  .tag i { width:8px; height:8px; border-radius:50%; background:#5fd8ff; box-shadow:0 0 12px #5fd8ff; }
+
+  h1 { font-size:78px; line-height:1.05; font-weight:800; letter-spacing:-.02em; }
+  h1 span { display:block; font-size:44px; font-weight:600; letter-spacing:.01em; margin-top:12px;
+            background:linear-gradient(95deg,#4fd0ff,#8b7bff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  .line { width:96px; height:4px; border-radius:2px; margin:26px 0 24px;
+          background:linear-gradient(90deg,#4fd0ff,#7c6cff); }
+
+  .sub { font-size:19px; line-height:1.85; color:#9fb0cc; }
+  .sub b { color:#e9f2ff; font-weight:600; }
+
+  .stats { display:flex; gap:14px; margin-top:36px; }
+  .stat { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+          border-radius:13px; padding:14px 20px; min-width:132px; }
+  .stat b { display:block; font-size:26px; font-weight:800; color:#63e0ff; letter-spacing:-.01em; }
+  .stat span { font-size:12.5px; color:#8fa0bd; letter-spacing:.08em; }
+
+  .foot { position:absolute; left:74px; bottom:44px; z-index:3;
+          font-size:14px; letter-spacing:.14em; color:#5b6d8c; }
+  .foot b { color:#7fd6ff; font-weight:600; }
+</style>
+</head>
+<body>
+  <div id="cover">
+    <div class="photo"><img src="images/board_real_top.jpg" alt="实物"></div>
+    <div class="content">
+      <div class="tag"><i></i>OPEN SOURCE HARDWARE</div>
+      <h1>H743<span>RGB-LCD 开发板</span></h1>
+      <div class="line"></div>
+      <p class="sub">
+        基于 <b>STM32H743VIT6</b> 的高性能开源开发板<br>
+        板载 <b>32MB SDRAM</b> · <b>SPI Flash</b> · <b>TF 卡</b><br>
+        LVGL 图形界面稳定跑满 <b>60 FPS</b>
+      </p>
+      <div class="stats">
+        <div class="stat"><b>480MHz</b><span>CORTEX-M7</span></div>
+        <div class="stat"><b>120MHz</b><span>SDRAM 0 错误</span></div>
+        <div class="stat"><b>60 FPS</b><span>LVGL 稳定</span></div>
+      </div>
+    </div>
+    <div class="foot">STM32H743VIT6 · SDRAM · RGB565 · TF · QSPI FLASH</div>
+  </div>
+</body>
+</html>
