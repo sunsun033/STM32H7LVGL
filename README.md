@@ -1,17 +1,18 @@
-# STM32H7LVGL
-基于STM32H743VIT6的RGB-LCD开源开发板，板载32MB SDRAM、SPI Flash与TF卡，含RGB565屏与触摸接口。外设全实测：SDRAM@120MHz零错误，LVGL稳定60
-# H743-LCD 开发板
+# STM32H7LVGL — H743-LCD 开发板
+
+> 基于 STM32H743VIT6 的 RGB-LCD 开源开发板：板载 32MB SDRAM、SPI Flash 与 TF 卡，RGB565 屏 + 电容触摸。外设全部实测跑通 —— **SDRAM@120MHz 零错误，LVGL 稳定 60FPS**。
+
 <div align="center">
 
-![PCB 渲染图](images/board_render_top.png)
+![LVGL 实机运行](images/test.jpg)
 
 </div>
 
----
+## 🔗 相关链接
 
-//bibi链接：https://www.bilibili.com/video/BV1QTHd6hEuJ/?spm_id_from=333.1007.top_right_bar_window_dynamic.content.click
-//立创开源：  https://oshwhub.com/sunmingyi1/project_tvfkmdfu
-//github开源：https://github.com/sunsun033/STM32H7LVGL
+- 📺 **B 站演示视频**：<https://www.bilibili.com/video/BV1QTHd6hEuJ/>
+- 💡 **立创开源（原理图/PCB）**：<https://oshwhub.com/sunmingyi1/project_tvfkmdfu>
+- 🐙 **GitHub 仓库**：<https://github.com/sunsun033/STM32H7LVGL>
 
 ## ✨ 简介
 
@@ -30,25 +31,21 @@
 | Type-C 供电 / 调试串口 | ✅ 已验证 | — |
 | 用户按键 ×3（USER / RST / BOOT0） | ✅ 已验证 | — |
 
-> 📹 实机演示视频见仓库 Release / 讨论区（LVGL 演示 + 亮度调节）。
+## 🖼️ 实物图
 
-## 🖼️ 实机运行效果
-
-LVGL 演示稳定运行在 **59~60 FPS**（左上角为 LVGL 性能监视器：`59 FPS, 1% CPU`）：
+裸板实拍（左上 Winbond TSOP54 SDRAM，中央 STM32H743VIT6，右侧 GPIO 扩展排针）：
 
 <div align="center">
 
-| | |
-|:---:|:---:|
-| ![LVGL 演示](images/demo_lvgl_ui.jpg) | ![亮度调节](images/demo_lvgl_brightness.jpg) |
+![开发板实物](images/pcb.jpg)
 
 </div>
 
-实物（三层板载结构：主控 + SDRAM + Flash，全部国产料，成本可控）：
+上机效果：LVGL 演示稳定 **59~60 FPS**（左上角性能监视器：`59 FPS, 1% CPU, 3ms`），装进 3D 打印外壳后连接 7 寸 RGB 屏：
 
 <div align="center">
 
-![实物图](images/board_real_top.jpg)
+![整机运行效果](images/test.jpg)
 
 </div>
 
@@ -79,26 +76,28 @@ C6   C7   D13  D12  D11  B11  B10  C3   C2   C4
 C5   A7   H3   H4   E6   ...
 ```
 
-> 完整引脚分配请查阅 `Hardware/` 目录下的原理图。
+> 完整引脚分配见 `PDF_STM32H743V2_2026-10-05/` 目录下的分模块原理图（MCU / POWER / LCD / FLASH / EXTERN）。
 
-## 📁 目录结构（规划）
+## 📁 目录结构
 
 ```
-├── Hardware/          # 嘉立创EDA工程导出：原理图 PDF、PCB、BOM
-├── Firmware/          # 固件源码（Keil / STM32CubeIDE 工程）
-│   ├── Drivers/       # BSP：SDRAM、LCD、Touch、Flash、TF
-│   ├── Middlewares/   # LVGL 等
-│   └── ...
-├── images/            # 文档图片
-└── README.md
+├── STM32H7_LCD/               # 固件源码（STM32CubeMX + Keil MDK 工程，LVGL 9.3）
+│   ├── BSP/                   # 板级驱动：SDRAM、LCD、Touch、Flash、TF
+│   ├── UI/                    # LVGL 界面
+│   ├── image/                 # 文档图片
+│   └── LVGL9.3移植说明.md      # 移植说明
+├── PDF_STM32H743V2_2026-10-05/ # 原理图 PDF（分模块）+ 例程
+├── BOM_核心板_核心板_2026-10-03.xlsx  # BOM 清单
+├── images/                    # README 图片
+└── LICENSE
 ```
 
 ## 🚀 快速上手
 
 1. **供电**：Type-C 线接入 `DEBUG` 口（同时提供 5V 电源与 USB 转串口调试）
-2. **下载**：板载 `BOOT0` 按键配合 RST 可进入系统 Bootloader 串口下载；也可从 `UART` 口 / SWD 飞线下载
+2. **下载**：板载 `BOOT0` 按键配合 RST 可进入系统 Bootloader 串口下载；也可从 `UART` 口 / SWD 下载
 3. **跑演示**：固件内置 LVGL 演示，上电直接运行；TF 卡 / SPI Flash 可存放图片等资源
-4. **二次开发**：BSP 驱动齐全（SDRAM / LCD / TP / Flash / TF），直接基于工程添加你的应用
+4. **二次开发**：`STM32H7_LCD/` 为 Keil MDK 工程，BSP 驱动齐全（SDRAM / LCD / TP / Flash / TF），直接添加你的应用；LVGL 9.3 移植要点见 `STM32H7_LCD/LVGL9.3移植说明.md`
 
 ## 📌 已知说明
 
@@ -111,7 +110,7 @@ C5   A7   H3   H4   E6   ...
 - [ ] 完整引脚表 / 引脚复用对照表
 - [ ] LVGL 移植教程文档
 - [ ] TF 卡 + FatFs 例程说明
-- [ ] 3D 打印外壳（见实物照片中的白色外壳）
+- [ ] 3D 打印外壳 STL 文件开源
 
 ## 🤝 参与贡献
 
@@ -119,9 +118,7 @@ C5   A7   H3   H4   E6   ...
 
 ## 📄 开源协议
 
-硬件：**CERN-OHL-S** ｜ 代码：**MIT** ｜ 文档：**CC BY-SA 4.0**
-
-> 待定，可根据你的需求调整。
+本项目基于 [Apache License 2.0](LICENSE) 开源。
 
 ---
 
